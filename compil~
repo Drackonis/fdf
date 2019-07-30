@@ -1,4 +1,0 @@
-cd mlxmc
-make
-cd ..
-gcc main.c minilibxMAC/libmlx.a -framework OPENGL -framework AppKit
