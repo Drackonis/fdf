@@ -1,1 +1,4 @@
-gcc main.c minilibxMAC/libmlx.a -framework OPENGL -framework AppKit
+cd mlxmc
+make
+cd ..
+gcc main.c mlxmc/libmlx.a -framework OPENGL -framework AppKit
