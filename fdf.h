@@ -13,7 +13,11 @@
 #ifndef FT_FDF_H
 # define FT_FDF_H
 
+# include <stdio.h> //ABUSIF
+# include <fcntl.h>
 # include "libft/libft.h"
+
+# define BUFF_SIZE 1
 
 typedef struct			s_fdf
 {
@@ -21,5 +25,7 @@ typedef struct			s_fdf
 	int	y;
 	int	z;
 }				t_fdf;
+
+int	get_next_line(const int fd, char **line);
 
 #endif
