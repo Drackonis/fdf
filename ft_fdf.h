@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf.h                                        :+:      :+:    :+:   */
+/*   ft_fdf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,10 +14,18 @@
 # define FT_FDF_H
 
 # include <stdio.h> //ABUSIF
-# include <fcntl.h>
+# include <fcntl.h> //GET NEXT LINE NEED
+# include <wchar.h>
 # include "libft/libft.h"
 
 # define BUFF_SIZE 1
+
+typedef struct			s_lines
+{
+	int		index;
+	char		*line;
+	struct s_lines	*next;
+}				t_lines;
 
 typedef struct			s_fdf
 {
@@ -26,6 +34,6 @@ typedef struct			s_fdf
 	int	z;
 }				t_fdf;
 
-int	get_next_line(const int fd, char **line);
+t_lines		*read_arg(int argc, char **argv, t_lines *begin);
 
 #endif

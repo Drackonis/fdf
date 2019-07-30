@@ -10,34 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "ft_fdf.h"
 
 int		main(int argc,char **argv)
 {
-	int		fd;
-	char			*line;
-	int			ret;
-	int 			i;
+	int 	i;
+	t_lines	*begin;
+	t_lines *current;
 
 	i = 0;
-	ret = 0;
-	if (argc == 1)
-		fd = 0;
-	else if (argc == 2)
-		fd = open(argv[1], O_RDONLY);
-	else
-		return (2);
-	while ((ret = get_next_line(fd, &line)) == 1)
+	begin = read_arg(argc, argv, begin);
+	current = begin;
+	while (current->next)
 	{
-		i++;
-		if (i == 10)
-			i = 1;
-		printf ("%d|%s|\n", i, line);
-		//getchar();
-		free(line);
-		line = NULL;
+		printf("%d|%s|\n", begin->index, begin->line);
+		current = current->next;
 	}
-	free(line);
-	if (argc == 2)
-		close(fd);
+	return (0);
 }

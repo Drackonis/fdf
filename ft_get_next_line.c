@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2get_next_line.c                                   :+:      :+:    :+:   */
+/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "ft_fdf.h"
 
 char	*ft_strnclr(char *s, int i)
 {
@@ -76,3 +76,68 @@ int		get_next_line(const int fd, char **line)
 	}
 	return (1);
 }
+
+t_lines		*set_link(int idx, char *line)
+{
+	t_lines *new;
+
+	if (!(new = (t_lines *)malloc(sizeof(t_lines))))
+		return(NULL);
+	new->index = idx;
+	new->line = line;
+	return (new);
+}
+
+t_lines		*set_chain(int fd, t_lines *begin)
+{
+	char		*line;
+	int 		ret;
+	int		idx;
+	int		start;
+	t_lines		*current;
+
+	ret = 0;
+	idx = 0;
+	start = 0;
+	while ((ret = get_next_line(fd, &line)) == 1)
+	{
+		if (start == 0)
+		{
+			begin = set_link(idx, line);
+			current = begin;	
+		}
+		else
+		{
+			printf("BEGIN : %s\n", begin->line);
+			current->next = set_link(idx, line);
+			current = current->next;
+		}
+		printf("%d|%s\n%s\n", current->index, current->line, begin->line); //________________________PRINTF
+		idx++;
+		start++;
+		free(line);
+		line = NULL;
+	}
+
+	printf("\n---\n%s\n---\n", begin->line);	
+	current->next = NULL;
+	free(line);
+	return (begin);
+}
+
+t_lines		*read_arg(int argc, char **argv, t_lines *begin)
+{
+	int		fd;
+	char		*line;
+	int		ret;
+
+	ret = 0;
+	if (argv[1])
+		fd = open(argv[1], O_RDONLY);
+	begin = set_chain(fd, begin);
+	if (argv[1])
+		close(fd);
+	return (begin);
+}
+
+
