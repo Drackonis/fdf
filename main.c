@@ -30,6 +30,8 @@ int		main(int argc,char **argv)
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
 		i++;
+		if (i == 10)
+			i = 1;
 		printf ("%d|%s|\n", i, line);
 		//getchar();
 		free(line);
@@ -39,33 +41,3 @@ int		main(int argc,char **argv)
 	if (argc == 2)
 		close(fd);
 }
-
-/*
-int		main(void)
-{
-	int		fd;
-	char	**line;
-	int		tmp;
-	int		i;
-
-	i = 0;
-	i = 0;
-	tmp = 1;
-	if ((fd = open("test42", O_RDWR | O_CREAT | O_APPEND, S_IRWXU)) == -1)
-		return (1);
-	if (!(line = (char**)malloc(sizeof(char*) * BUFF_SIZE)))
-		return (1);
-	*line = NULL;
-	while (tmp == 1)
-	{
-		tmp = get_next_line(fd, line);
-		printf("%s\n", *line);
-		i++;
-		free(*line);
-		*line = NULL;
-	}
-	if (close(fd) == -1)
-		return (1);
-	return (0);
-}
-*/
