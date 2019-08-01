@@ -14,17 +14,18 @@
 
 int		main(int argc,char **argv)
 {
-	int 	i;
-	t_lines	*begin;
-	t_lines *current;
+	t_lines	begin;
 
-	i = 0;
 	begin = read_arg(argc, argv, begin);
-	current = begin;
+	////DEBUG_____________________________
+	t_lines *current; 
+	current = &begin;
 	while (current->next)
 	{
-		printf("%d|%s|\n", begin->index, begin->line);
+		printf("%d|", current->index);
+		printf("%s\n", current->line);
 		current = current->next;
 	}
+	//____________________________________
 	return (0);
 }

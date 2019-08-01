@@ -81,14 +81,14 @@ t_lines		*set_link(int idx, char *line)
 {
 	t_lines *new;
 
-	if (!(new = (t_lines *)malloc(sizeof(t_lines))))
+	if (!(new = (t_lines*)malloc(sizeof(t_lines))))
 		return(NULL);
 	new->index = idx;
-	new->line = line;
+	new->line = ft_strdup(line);
 	return (new);
 }
 
-t_lines		*set_chain(int fd, t_lines *begin)
+t_lines		set_chain(int fd, t_lines begin)
 {
 	char		*line;
 	int 		ret;
@@ -102,30 +102,25 @@ t_lines		*set_chain(int fd, t_lines *begin)
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
 		if (start == 0)
-		{
-			begin = set_link(idx, line);
-			current = begin;	
+		{	
+			begin.line = ft_strdup(line);
+			current = &begin;
 		}
 		else
 		{
-			printf("BEGIN : %s\n", begin->line);
 			current->next = set_link(idx, line);
 			current = current->next;
 		}
-		printf("%d|%s\n%s\n", current->index, current->line, begin->line); //________________________PRINTF
 		idx++;
 		start++;
 		free(line);
 		line = NULL;
 	}
-
-	printf("\n---\n%s\n---\n", begin->line);	
 	current->next = NULL;
-	free(line);
 	return (begin);
 }
 
-t_lines		*read_arg(int argc, char **argv, t_lines *begin)
+t_lines		read_arg(int argc, char **argv, t_lines begin)
 {
 	int		fd;
 	char		*line;

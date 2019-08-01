@@ -34,6 +34,6 @@ typedef struct			s_fdf
 	int	z;
 }				t_fdf;
 
-t_lines		*read_arg(int argc, char **argv, t_lines *begin);
+t_lines		read_arg(int argc, char **argv, t_lines begin);
 
 #endif
