@@ -20,6 +20,13 @@
 
 # define BUFF_SIZE 1
 
+typedef	struct			s_data
+{
+	int		nblines;
+	int		**tab;
+	struct s_lines	*begin;
+}				t_data;
+
 typedef struct			s_lines
 {
 	int		index;
@@ -34,6 +41,7 @@ typedef struct			s_fdf
 	int	z;
 }				t_fdf;
 
-t_lines		read_arg(int argc, char **argv, t_lines begin);
+t_lines		read_arg(int argc, char **argv, t_lines begin, t_data *data);
+int		**ft_settab(t_lines *begin, t_data *data);
 
 #endif

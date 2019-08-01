@@ -88,7 +88,7 @@ t_lines		*set_link(int idx, char *line)
 	return (new);
 }
 
-t_lines		set_chain(int fd, t_lines begin)
+t_lines		set_chain(int fd, t_lines begin, t_data *data)
 {
 	char		*line;
 	int 		ret;
@@ -117,11 +117,12 @@ t_lines		set_chain(int fd, t_lines begin)
 		free(line);
 		line = NULL;
 	}
+	data->nblines = idx;
 	current->next = NULL;
 	return (begin);
 }
 
-t_lines		read_arg(int argc, char **argv, t_lines begin)
+t_lines		read_arg(int argc, char **argv, t_lines begin, t_data *data)
 {
 	int		fd;
 	char		*line;
@@ -130,7 +131,7 @@ t_lines		read_arg(int argc, char **argv, t_lines begin)
 	ret = 0;
 	if (argv[1])
 		fd = open(argv[1], O_RDONLY);
-	begin = set_chain(fd, begin);
+	begin = set_chain(fd, begin, data);
 	if (argv[1])
 		close(fd);
 	return (begin);

@@ -15,17 +15,44 @@
 int		main(int argc,char **argv)
 {
 	t_lines	begin;
+	t_data	data;
 
-	begin = read_arg(argc, argv, begin);
+	begin = read_arg(argc, argv, begin, &data);
+	data.begin = &begin;
+	data.tab = ft_settab(&begin, &data);
+
+
+
+	printf("DATA NB LINES--->%d\n", data.nblines);
 	////DEBUG_____________________________
+	
+	int i = 0;
+	int j = 0;
+	while(data.tab[i])
+	{
+		printf("%d|", i);
+		j = 0;
+		while(data.tab[i][j])
+		{
+			printf("%d  ", data.tab[i][j]);	
+			j++;
+		}
+		i++;
+		printf("\n");
+	}
+	
+	/*
 	t_lines *current; 
-	current = &begin;
+	current = data.begin;
 	while (current->next)
 	{
-		printf("%d|", current->index);
+		printf("%d|", current->index % 10);
 		printf("%s\n", current->line);
 		current = current->next;
 	}
+	printf("%d|", current->index % 10);
+	printf("%s\n", current->line);
+	*/
 	//____________________________________
 	return (0);
 }
