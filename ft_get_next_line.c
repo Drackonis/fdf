@@ -102,7 +102,8 @@ t_lines		set_chain(int fd, t_lines begin)
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
 		if (start == 0)
-		{	
+		{
+			begin.index = idx;
 			begin.line = ft_strdup(line);
 			current = &begin;
 		}
