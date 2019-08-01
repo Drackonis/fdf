@@ -35,8 +35,10 @@ int		main(int argc,char **argv)
 		while(j < data.nbcol/*data.tab[i][j]*/)
 		{
 			if (data.tab[i][j] >= 0 && data.tab[i][j] < 10)
+				printf("  ");
+			else if (data.tab[i][j] >= -9 && data.tab[i][j] <= 99)
 				printf(" ");
-			printf("%d ", data.tab[i][j]);	
+			printf("%d|", data.tab[i][j]);	
 			j++;
 		}
 		i++;
