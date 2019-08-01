@@ -54,7 +54,7 @@ int	*fill_line(t_lines *line)
 				current++;
 		}
 	}
-	tab[j] = (int)NULL;
+	tab[j] = 0;
 	return(tab);
 }
 
@@ -66,7 +66,7 @@ int	**ft_settab(t_lines *begin, t_data *data)
 
 	i = 0;
 	current = begin;
-	if(!(tab = (int**)malloc(sizeof(int*) * (data->nblines + 1))))
+	if(!(tab = (int**)malloc(sizeof(int*) * (data->nblin + 1))))
 		return (NULL);
 	while(current)
 	{
@@ -74,6 +74,7 @@ int	**ft_settab(t_lines *begin, t_data *data)
 		current = current->next;
 		i++;
 	}
+	data->nbcol = count_number(begin->line);
 	tab[i] = NULL;
 	return(tab);
 }

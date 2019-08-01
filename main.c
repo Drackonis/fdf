@@ -23,18 +23,20 @@ int		main(int argc,char **argv)
 
 
 
-	printf("DATA NB LINES--->%d\n", data.nblines);
+	printf("DATA NB LINES--->%d\n", data.nblin);
 	////DEBUG_____________________________
 	
 	int i = 0;
 	int j = 0;
 	while(data.tab[i])
 	{
-		printf("%d|", i);
+		printf("%d|", i % 10);
 		j = 0;
-		while(data.tab[i][j])
+		while(j < data.nbcol/*data.tab[i][j]*/)
 		{
-			printf("%d  ", data.tab[i][j]);	
+			if (data.tab[i][j] >= 0 && data.tab[i][j] < 10)
+				printf(" ");
+			printf("%d ", data.tab[i][j]);	
 			j++;
 		}
 		i++;

@@ -22,7 +22,8 @@
 
 typedef	struct			s_data
 {
-	int		nblines;
+	int		nblin;
+	int		nbcol;
 	int		**tab;
 	struct s_lines	*begin;
 }				t_data;

@@ -117,7 +117,7 @@ t_lines		set_chain(int fd, t_lines begin, t_data *data)
 		free(line);
 		line = NULL;
 	}
-	data->nblines = idx;
+	data->nblin = idx;
 	current->next = NULL;
 	return (begin);
 }
