@@ -17,22 +17,29 @@ int		main(int argc,char **argv)
 	t_lines	begin;
 	t_data	data;
 
+	//data.mlx_ptr = mlx_init();
 	begin = read_arg(argc, argv, begin, &data);
 	data.begin = &begin;
 	data.tab = ft_settab(&begin, &data);
+	ft_setwin(&data);
 
 
-
-	printf("DATA NB LINES--->%d\n", data.nblin);
 	////DEBUG_____________________________
 	
 	int i = 0;
 	int j = 0;
+	printf("DATA NB LINES--->%d\n", data.nblin);
+	printf("DATA NB COLUM--->%d\n", data.nbcol);
+	int w = pytr(data.nblin, data.nbcol);
+	printf("WINSIZEWIDTH = %d\n", data.winwidth);
+	printf("WINSIZEHEIGHT = %d\n", data.winheight);
+	printf("SPACE = %d\n\n", data.space);
+	/*
 	while(data.tab[i])
 	{
 		printf("%d|", i % 10);
 		j = 0;
-		while(j < data.nbcol/*data.tab[i][j]*/)
+		while(j < data.nbcol)
 		{
 			if (data.tab[i][j] >= 0 && data.tab[i][j] < 10)
 				printf("  ");
@@ -44,6 +51,7 @@ int		main(int argc,char **argv)
 		i++;
 		printf("\n");
 	}
+	*/
 	
 	/*
 	t_lines *current; 

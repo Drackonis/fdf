@@ -16,12 +16,18 @@
 # include <stdio.h> //ABUSIF
 # include <fcntl.h> //GET NEXT LINE NEED
 # include <wchar.h>
+# include <math.h>
 # include "libft/libft.h"
 
 # define BUFF_SIZE 1
 
 typedef	struct			s_data
 {
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int		winwidth;
+	int		winheight;
+	int		space;
 	int		nblin;
 	int		nbcol;
 	int		**tab;
