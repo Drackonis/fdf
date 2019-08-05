@@ -30,7 +30,6 @@ int		main(int argc,char **argv)
 	int j = 0;
 	printf("DATA NB LINES--->%d\n", data.nblin);
 	printf("DATA NB COLUM--->%d\n", data.nbcol);
-	int w = pytr(data.nblin, data.nbcol);
 	printf("WINSIZEWIDTH = %d\n", data.winwidth);
 	printf("WINSIZEHEIGHT = %d\n", data.winheight);
 	printf("SPACE = %d\n\n", data.space);
