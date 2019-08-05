@@ -29,7 +29,7 @@ void	ft_keycolor(int kc, t_data *data)
 }
 
 void 	ft_switchproj(t_data *data)
-{
+
 	if (data->proj == PROJ_MAX)
 		data->proj = 0;
 	else
@@ -54,12 +54,12 @@ void	ft_keypad(int kc, t_data *data)
 {
 	if (kc == MULT)
 	{
-		data->t_pos.rx += 1;
-		data->t_pos.ry += 5;
+		data->pos.rx += 1;
+		data->pos.ry += 5;
 	}
 	else if (kc == DIV)
 	{
-		data->t_pos.rx -= 1;
-		data->t_pos.ry -= 5;
+		data->pos.rx -= 1;
+		data->pos.ry -= 5;
 	}
 }

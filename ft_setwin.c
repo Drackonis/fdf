@@ -1,6 +1,6 @@
 #include "ft_fdf.h"
 
-void	ft_space(t_data *data)
+void	ft_setzoom(t_data *data)
 {
 	if (data->nbcol <= 20)
 		data->space = 25;
@@ -14,7 +14,7 @@ void	ft_space(t_data *data)
 		data->space = 1;
 }
 
-void	ft_window(t_data *data)
+void	ft_setscreen(t_data *data)
 {
 	if (data->nbcol <= 10)
 		data->winheight = data->nbcol * 100;
@@ -42,6 +42,23 @@ void	ft_window(t_data *data)
 
 void	ft_setwin(t_data *data)
 {
-	ft_window(data);
-	ft_space(data);
+	ft_setzoom(data);
+	ft_setscreen(data);
+}
+
+void	ft_init(t_data *data)
+{
+	ft_setzoom(data);
+	data->pos.ix = data->winwidth / 4;
+	data->pos.iy = data->winheight / 4;
+	data->pos.rx = 1;
+	data->pos.ry = 1;
+	if (!data->color.color)
+	{
+		data->color.a = 255;
+		data->color.sa = 255;
+		data->color.r = 255;
+		data->color.g = 255;
+		data->color.b = 255;
+	}
 }
