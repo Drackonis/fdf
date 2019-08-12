@@ -33,7 +33,7 @@ int		main(int argc,char **argv)
 	printf("WINSIZEWIDTH = %d\n", data.winwidth);
 	printf("WINSIZEHEIGHT = %d\n", data.winheight);
 	printf("SPACE = %d\n\n", data.space);
-	/*
+	
 	while(data.tab[i])
 	{
 		printf("%d|", i % 10);
@@ -50,7 +50,7 @@ int		main(int argc,char **argv)
 		i++;
 		printf("\n");
 	}
-	*/
+	
 	
 	/*
 	t_lines *current; 

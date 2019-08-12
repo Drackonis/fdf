@@ -12,35 +12,6 @@
 
 #include "ft_fdf.h"
 
-char	*ft_strnclr(char *s, int i)
-{
-	char	*new;
-	int		j;
-
-	j = 0;
-	if (!s)
-		return (NULL);
-	new = ft_strnew(ft_strlen(s) - i);
-	while (s[i])
-		new[j++] = s[i++];
-	new[j] = '\0';
-	ft_strdel(&s);
-	return (new);
-}
-
-char	*ft_strfreejoin(char *s1, char *s2)
-{
-	char	*new;
-
-	if (!s2)
-		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	new = ft_strjoin(s1, s2);
-	ft_strdel(&s1);
-	return (new);
-}
-
 int		get_next_line(const int fd, char **line)
 {
 	static char		*tab[256];

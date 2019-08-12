@@ -42,6 +42,30 @@
 # define MULT 106
 # define DIV 111
 
+typedef struct			s_pt
+{
+	int		x;
+	int		y;
+}				t_pt;
+
+typedef struct			s_pos
+{
+	int		ix;
+	int		iy;
+	int		rx;
+	int		ry;
+}				t_pos;
+
+typedef struct			s_color
+{
+	int		color;
+	int		r;
+	int		g;
+	int		b;
+	int		a;
+	int		sa;
+}				t_color;
+
 typedef	struct			s_data
 {
 	void		*mlx_ptr;
@@ -67,31 +91,7 @@ typedef struct			s_img
 	int		bpp;
 	int		size_line;
 	int		endian;
-}
-
-typedef struct			s_pt
-{
-	int		x;
-	int		y;
-}				t_pt;
-
-typedef struct			s_pos
-{
-	int		ix;
-	int		iy;
-	int		rx;
-	int		ry;
-}				t_pos;
-
-typedef struct			s_color
-{
-	int		color;
-	int		r;
-	int		g;
-	int		b;
-	int		a;
-	int		sa;
-}
+}				t_img;
 
 typedef struct			s_lines
 {
@@ -101,6 +101,11 @@ typedef struct			s_lines
 }				t_lines;
 
 t_lines		read_arg(int argc, char **argv, t_lines begin, t_data *data);
+t_lines		set_chain(int fd, t_lines begin, t_data *data);
+t_lines		*set_link(int idx, char *line);
+int		get_next_line(const int fd, char **line);
+
 int		**ft_settab(t_lines *begin, t_data *data);
+
 
 #endif
