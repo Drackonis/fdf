@@ -6,12 +6,14 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 17:02:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/14 13:27:53 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/14 14:41:51 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FDF_H
 # define FT_FDF_H
+
+#include "mlx.h"
 
 # include <stdio.h> //ABUSIF
 # include <fcntl.h> //GET NEXT LINE NEED
@@ -66,6 +68,15 @@ typedef struct			s_color
 	int					sa;
 }						t_color;
 
+typedef struct			s_img
+{
+	void				*img_ptr;
+	char				*data;
+	int					bpp;
+	int					size_line;
+	int					endian;
+}						t_img;
+
 typedef	struct			s_data
 {
 	void				*mlx_ptr;
@@ -82,16 +93,8 @@ typedef	struct			s_data
 	struct s_pt			pt;
 	struct s_pos		pos;
 	struct s_color		color;
+	struct s_img		img;
 }						t_data;
-
-typedef struct			s_img
-{
-	void				*img_ptr;
-	char				*data;
-	int					bpp;
-	int					size_line;
-	int					endian;
-}						t_img;
 
 typedef struct			s_lines
 {
@@ -114,5 +117,24 @@ int			**ft_settab(t_lines *begin, t_data *data);
 int			*fill_line(t_lines *line);
 int			count_number(char *line);
 int			isnb(char c);
+
+int			ft_display(t_data *data);
+int			ft_getkey(int kc, t_data *data);
+
+void		ft_keypad(int kc, t_data *data);
+void		ft_keyzoom(int kc, t_data *data);
+void		ft_switchproj(t_data *data);
+void		ft_keycolor(int lc, t_data *data);
+void		ft_keymove(int kc, t_data *data);
+
+void		ft_initwin(t_data *data);
+void		ft_setwin(t_data *data);
+void		ft_setscreen(t_data *data);
+void		ft_setzoom(t_data *data);
+
+int			ft_initmlx(t_data *data);
+
+void		ft_drawimg(t_data *data);
+void		ft_putpix(t_data *data, int x, int y);
 
 #endif

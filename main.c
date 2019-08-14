@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 16:58:25 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/14 13:29:53 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/14 15:13:31 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int				main(int argc,char **argv)
 	begin = read_arg(argv, begin, &data);
 	data.begin = &begin;
 	data.tab = ft_settab(&begin, &data);
-	ft_setwin(&data);
+	ft_initmlx(&data);
+	//ft_setwin(&data);
 
 
 	////DEBUG_____________________________
@@ -34,7 +35,7 @@ int				main(int argc,char **argv)
 	printf("WINSIZEWIDTH = %d\n", data.winwidth);
 	printf("WINSIZEHEIGHT = %d\n", data.winheight);
 	printf("SPACE = %d\n\n", data.space);
-	
+
 	while (data.tab[i])
 	{
 		printf("%d|", i % 10);

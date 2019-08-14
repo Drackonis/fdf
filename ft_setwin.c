@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 13:21:22 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/14 13:21:26 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/14 13:53:28 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_setwin(t_data *data)
 	ft_setscreen(data);
 }
 
-void	ft_init(t_data *data)
+void	ft_initwin(t_data *data)
 {
 	ft_setzoom(data);
 	data->pos.ix = data->winwidth / 4;
