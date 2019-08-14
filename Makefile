@@ -6,14 +6,16 @@
 #    By: rkergast <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 16:06:19 by rkergast          #+#    #+#              #
-#    Updated: 2019/01/11 13:35:17 by rkergast         ###   ########.fr        #
+#    Updated: 2019/08/14 12:57:31 by rkergast         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 define SRC_NAME
-ft_fdf.c fdf.c fdf.c\
-fdf.c fdf.c\
-fdf.c
+main.c ft_get_next_line.c ft_getkey.c ft_setkey.c ft_settab.c ft_setwin.c\
+ft_tabtopix.c libft/ft_atoi.c libft/ft_strchr.c libft/ft_strclr.c\
+libft/ft_strdel.c libft/ft_strdup.c libft/ft_strfreejoin.c libft/ft_strjoin.c\
+libft/ft_strjoin.c libft/ft_strlen.c libft/ft_strnclr.c libft/ft_strnew.c\
+libft/ft_strsub.c
 endef
 
 CC = gcc

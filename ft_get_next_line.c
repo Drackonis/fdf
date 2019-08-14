@@ -6,13 +6,13 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 17:05:18 by rkergast          #+#    #+#             */
-/*   Updated: 2018/12/17 19:20:53 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/14 13:28:13 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-int		get_next_line(const int fd, char **line)
+int					get_next_line(const int fd, char **line)
 {
 	static char		*tab[256];
 	char			*buf;
@@ -48,24 +48,24 @@ int		get_next_line(const int fd, char **line)
 	return (1);
 }
 
-t_lines		*set_link(int idx, char *line)
+t_lines				*set_link(int idx, char *line)
 {
-	t_lines *new;
+	t_lines			*new;
 
 	if (!(new = (t_lines*)malloc(sizeof(t_lines))))
-		return(NULL);
+		return (NULL);
 	new->index = idx;
 	new->line = ft_strdup(line);
 	return (new);
 }
 
-t_lines		set_chain(int fd, t_lines begin, t_data *data)
+t_lines				set_chain(int fd, t_lines begin, t_data *data)
 {
-	char		*line;
-	int 		ret;
-	int		idx;
-	int		start;
-	t_lines		*current;
+	char			*line;
+	int				ret;
+	int				idx;
+	int				start;
+	t_lines			*current;
 
 	ret = 0;
 	idx = 0;
@@ -93,12 +93,13 @@ t_lines		set_chain(int fd, t_lines begin, t_data *data)
 	return (begin);
 }
 
-t_lines		read_arg(int argc, char **argv, t_lines begin, t_data *data)
+t_lines				read_arg(char **argv, t_lines begin, t_data *data)
 {
-	int		fd;
-	char		*line;
-	int		ret;
+	int				fd;
+	//char			*line;
+	int				ret;
 
+	fd = 0;
 	ret = 0;
 	if (argv[1])
 		fd = open(argv[1], O_RDONLY);
@@ -107,5 +108,3 @@ t_lines		read_arg(int argc, char **argv, t_lines begin, t_data *data)
 		close(fd);
 	return (begin);
 }
-
-

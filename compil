@@ -1,4 +1,4 @@
 cd mlxmc
 make
 cd ..
-gcc main.c mlxmc/libmlx.a -framework OPENGL -framework AppKit
+gcc fmain.c ft_fdf.h ft_settab.c ft_setwin.c ft_get_next_line.c libft/*.c mlxmc/libmlx.a -framework OPENGL -framework AppKit

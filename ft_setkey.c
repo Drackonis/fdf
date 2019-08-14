@@ -1,14 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_setkey.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/14 13:08:06 by rkergast          #+#    #+#             */
+/*   Updated: 2019/08/14 13:15:48 by rkergast         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_fdf.h"
 
 void	ft_keymove(int kc, t_data *data)
 {
 	if (kc == UP)
-		data->t_pos.iy += 40;
+		data->pos.iy += 40;
 	else if (kc == DOWN)
-		data->t_pos.iy -= 40;
+		data->pos.iy -= 40;
 	else if (kc == LEFT)
-		data->t_pos.ix -= 40;
+		data->pos.ix -= 40;
 	else if (kc == RIGHT)
-		data->t_pos.iy += 40;
+		data->pos.iy += 40;
 }
 
 void	ft_keycolor(int kc, t_data *data)
@@ -28,8 +41,8 @@ void	ft_keycolor(int kc, t_data *data)
 	}
 }
 
-void 	ft_switchproj(t_data *data)
-
+void	ft_switchproj(t_data *data)
+{
 	if (data->proj == PROJ_MAX)
 		data->proj = 0;
 	else

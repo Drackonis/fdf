@@ -6,19 +6,20 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 16:58:25 by rkergast          #+#    #+#             */
-/*   Updated: 2018/12/17 18:52:51 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/14 13:29:53 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-int		main(int argc,char **argv)
+int				main(int argc,char **argv)
 {
-	t_lines	begin;
-	t_data	data;
+	t_lines		begin;
+	t_data		data;
 
+	argc--;
 	//data.mlx_ptr = mlx_init();
-	begin = read_arg(argc, argv, begin, &data);
+	begin = read_arg(argv, begin, &data);
 	data.begin = &begin;
 	data.tab = ft_settab(&begin, &data);
 	ft_setwin(&data);
@@ -26,19 +27,19 @@ int		main(int argc,char **argv)
 
 	////DEBUG_____________________________
 	
-	int i = 0;
-	int j = 0;
+	int			i = 0;
+	int			j = 0;
 	printf("DATA NB LINES--->%d\n", data.nblin);
 	printf("DATA NB COLUM--->%d\n", data.nbcol);
 	printf("WINSIZEWIDTH = %d\n", data.winwidth);
 	printf("WINSIZEHEIGHT = %d\n", data.winheight);
 	printf("SPACE = %d\n\n", data.space);
 	
-	while(data.tab[i])
+	while (data.tab[i])
 	{
 		printf("%d|", i % 10);
 		j = 0;
-		while(j < data.nbcol)
+		while (j < data.nbcol)
 		{
 			if (data.tab[i][j] >= 0 && data.tab[i][j] < 10)
 				printf("  ");

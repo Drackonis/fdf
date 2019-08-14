@@ -1,0 +1,1 @@
+gcc -Wall -Wextra -Werror main.c ft_fdf.h ft_get_next_line.c ft_setwin.c ft_settab.c libft/*.c
