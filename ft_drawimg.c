@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 14:22:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/16 15:56:27 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/16 16:59:46 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 void		ft_putpix(t_data *data, int x, int y)
 {
+	printf("%d|%d\n", data->pt.x1, data->pt.x2);
 	/*data->img.data[x * 4 +
 		y * 4 + 2] = data->color.r;*/
-	data->img.data[(x * (data->img.bpp / 8)) +
-		(y * data->img.size_line)] = data->color.r;
-	data->img.data[(x * (data->img.bpp / 8)) +
-		(y * data->img.size_line) + 1] = data->color.g;
-	data->img.data[(x * (data->img.bpp / 8)) +
-		(y * data->img.size_line) + 2] = data->color.b;
+	if (x > 0 && y > 0 && x < data->winwidth && y < data->winheight)
+	{
+		data->img.data[(x * (data->img.bpp / 8)) +
+			(y * data->img.size_line)] = data->color.r;
+		data->img.data[(x * (data->img.bpp / 8)) +
+			(y * data->img.size_line) + 1] = data->color.g;
+		data->img.data[(x * (data->img.bpp / 8)) +
+			(y * data->img.size_line) + 2] = data->color.b;
+	}
 	/*data->img.data[(x * 4) +
 		(y * data->winheight * 4) + 1] = data->color.g;
 	data->img.data[(x * (data->img.bpp / 8)) +
@@ -39,12 +43,27 @@ void		ft_drawimg(t_data *data)
 	printf("WINSIZEHEIGHT = %d\n", data->winheight);
 	printf("SPACE = %d\n\n", data->space);
 
-	data->pt.x1 = -275;
-	data->pt.x2 = 824;//data->winheight;;
-	data->pt.y1 = -332;
-	data->pt.y2 = 993;//data->winwidth;
-
+	data->pt.x1 = data->winwidth / 2;
+	data->pt.y1 = data->winheight / 2;
+	data->pt.x2 = data->pt.x1 - 50;//data->winheight;;
+	data->pt.y2 = data->pt.y1 + 50;//data->winwidth;
 	ft_bresenham(data);
+	data->pt.x1 = data->winwidth / 2;
+	data->pt.y1 = data->winheight / 2;
+	data->pt.x2 = data->pt.x1 - 50;//data->winheight;;
+	data->pt.y2 = data->pt.y1 + 50;//data->winwidth;
+	ft_bresenham(data);
+	data->pt.x1 = data->winwidth / 2;
+	data->pt.y1 = data->winheight / 2;
+	data->pt.x2 = data->pt.x1 + 50;//data->winheight;;
+	data->pt.y2 = data->pt.y1 - 50;//data->winwidth;
+	ft_bresenham(data);
+	data->pt.x1 = data->winwidth / 2;
+	data->pt.y1 = data->winheight / 2;
+	data->pt.x2 = data->pt.x1 - 50;//data->winheight;;
+	data->pt.y2 = data->pt.y1 - 50;//data->winwidth;
+	ft_bresenham(data);
+
 	/*while (i < data->winheight * data->winwidth)
 	{
 		i++;

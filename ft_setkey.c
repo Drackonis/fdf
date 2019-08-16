@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 13:08:06 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/16 16:05:08 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/16 16:20:28 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	ft_keymove(int kc, t_data *data)
 {
-	printf("coucouKEY : %d\n", kc);
 	if (kc == UP)
-		data->pos.iy += 40;
-	else if (kc == DOWN)
 		data->pos.iy -= 40;
+	else if (kc == DOWN)
+		data->pos.iy += 40;
 	else if (kc == LEFT)
 		data->pos.ix -= 40;
 	else if (kc == RIGHT)
