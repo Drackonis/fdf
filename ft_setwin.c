@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 13:21:22 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/14 13:53:28 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/16 15:55:24 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,17 @@ void	ft_setwin(t_data *data)
 void	ft_initwin(t_data *data)
 {
 	ft_setzoom(data);
-	data->pos.ix = data->winwidth / 4;
-	data->pos.iy = data->winheight / 4;
+	data->pos.ix = (int)data->winwidth / 4;
+	data->pos.iy = (int)data->winheight / 4;
 	data->pos.rx = 1;
 	data->pos.ry = 1;
-	if (!data->color.color)
-	{
+	/*if (!data->color.color)
+	{*/
 		data->color.a = 255;
 		data->color.sa = 255;
 		data->color.r = 255;
 		data->color.g = 255;
 		data->color.b = 255;
-	}
+	//}
+	//printf("%d|%d|%d\n", data->color.r, data->color.g,data->color.b);
 }

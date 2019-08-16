@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 17:02:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/14 14:41:51 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/16 16:03:51 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,40 @@
 # define BUFF_SIZE 1
 # define PROJ_MAX 1
 
-# define UP 38 //621
-# define DOWN 40 //521
-# define RIGHT 39 //421
-# define LEFT 37 //321
-# define ARROW 38 || 40 || 39 || 37
+# define UP 126
+# define DOWN 125
+# define RIGHT 124
+# define LEFT 123
+# define ARROW 123 || 124 || 125 || 126
 
-# define R 82 //51
-# define G 71 //5
-# define B 66 //11
-# define A 65 // 
+# define R 15
+# define G 5
+# define B 11
+# define A 0
 
-# define SPACE 13 //94
-# define ENTER 32 //63
-# define ESC 53 //35
+# define SPACE 49
+# define ENTER 36
+# define ESC 53
 
-# define MORE 107 //96
-# define LESS 109 //87
-# define MULT 106 //76
-# define DIV 111 //57
+# define MORE 69
+# define LESS 78
+# define MULT 67
+# define DIV 75
 
 typedef struct			s_pt
 {
 	int					x;
 	int					y;
+	int					x1;
+	int					y1;
+	int					x2;
+	int					y2;
+	int					dx;
+	int					sx;
+	int					dy;
+	int					sy;
+	int					err;
+	int					er2;
 }						t_pt;
 
 typedef struct			s_pos
@@ -136,5 +146,7 @@ int			ft_initmlx(t_data *data);
 
 void		ft_drawimg(t_data *data);
 void		ft_putpix(t_data *data, int x, int y);
+
+void		ft_bresenham(t_data *data);
 
 #endif
