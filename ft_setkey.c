@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 13:08:06 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/16 16:20:28 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/20 14:39:26 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_keymove(int kc, t_data *data)
 {
 	if (kc == UP)
-		data->pos.iy -= 40;
-	else if (kc == DOWN)
 		data->pos.iy += 40;
+	else if (kc == DOWN)
+		data->pos.iy -= 40;
 	else if (kc == LEFT)
-		data->pos.ix -= 40;
-	else if (kc == RIGHT)
 		data->pos.ix += 40;
+	else if (kc == RIGHT)
+		data->pos.ix -= 40;
 }
 
 void	ft_keycolor(int kc, t_data *data)
@@ -51,13 +51,13 @@ void	ft_switchproj(t_data *data)
 
 void	ft_keyzoom(int kc, t_data *data)
 {
-	if (kc == MORE)
+	if (kc == LESS)
 	{
 		data->space -= 5;
 		if (data->space == 0)
 			data->space = 1;
 	}
-	else if (kc == LESS)
+	else if (kc == MORE)
 	{
 		data->space += 5;
 	}

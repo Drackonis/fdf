@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 16:58:25 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/14 15:13:31 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/20 12:26:19 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int				main(int argc,char **argv)
 	begin = read_arg(argv, begin, &data);
 	data.begin = &begin;
 	data.tab = ft_settab(&begin, &data);
+
 	ft_initmlx(&data);
 	//ft_setwin(&data);
 

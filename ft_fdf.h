@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 17:02:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/16 16:03:51 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/20 12:06:18 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,4 +149,6 @@ void		ft_putpix(t_data *data, int x, int y);
 
 void		ft_bresenham(t_data *data);
 
+int			ft_tabtoisox(int x, int y, t_data *data);
+int			ft_tabtoisoy(int x, int y, t_data *data);
 #endif
