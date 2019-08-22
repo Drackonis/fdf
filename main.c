@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 16:58:25 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/20 12:26:19 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/22 17:49:37 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int				main(int argc,char **argv)
 	t_data		data;
 
 	argc--;
+	begin.index = 0;
+	begin.line = "\0";
 	//data.mlx_ptr = mlx_init();
 	begin = read_arg(argv, begin, &data);
 	data.begin = &begin;
