@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 17:02:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/20 12:06:18 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/22 17:17:25 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@
 
 # define MORE 69
 # define LESS 78
-# define MULT 67
-# define DIV 75
+# define RPX 24
+# define RMX 27
+# define RPY 25
+# define RMY 29
 
 typedef struct			s_pt
 {
@@ -64,8 +66,8 @@ typedef struct			s_pos
 {
 	int					ix;
 	int					iy;
-	int					rx;
-	int					ry;
+	float				rx;
+	float				ry;
 }						t_pos;
 
 typedef struct			s_color
@@ -74,8 +76,8 @@ typedef struct			s_color
 	int					r;
 	int					g;
 	int					b;
-	int					a;
-	int					sa;
+	float				a;
+	float				sa;
 }						t_color;
 
 typedef struct			s_img
@@ -151,4 +153,19 @@ void		ft_bresenham(t_data *data);
 
 int			ft_tabtoisox(int x, int y, t_data *data);
 int			ft_tabtoisoy(int x, int y, t_data *data);
+
+void		ft_swap(t_data *data);
+
+void		ft_setred(t_data *data);
+void		ft_setgreen(t_data *data);
+void		ft_setblue(t_data *data);
+void		ft_setwhite(t_data *data);
+void		ft_setbrown(t_data *data);
+
+void		ft_setyellow(t_data *data);
+void		ft_setcyan(t_data *data);
+void		ft_setpurple(t_data *data);
+void		ft_setblack(t_data *data);
+void		ft_setgrey(t_data *data);
+
 #endif

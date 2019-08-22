@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 13:21:22 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/16 16:31:51 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/22 16:56:46 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,11 @@ void	ft_initwin(t_data *data)
 	data->pos.iy = 0;//(int)data->winheight / 4;
 	data->pos.rx = 1;
 	data->pos.ry = 1;
+	data->proj = 0;
 	/*if (!data->color.color)
 	{*/
-		data->color.a = 255;
-		data->color.sa = 255;
+		data->color.a = 1;
+		data->color.sa = 1;
 		data->color.r = 255;
 		data->color.g = 255;
 		data->color.b = 255;

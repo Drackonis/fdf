@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 12:47:40 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/16 16:04:55 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/22 17:02:02 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_getkey(int kc, t_data *data)
 		exit(0);
 	else if (kc == LESS || kc == MORE)
 		ft_keyzoom(kc, data);
-	else if (kc == DIV || kc == MULT)
+	else if (kc == RPX || kc == RPY || kc == RMX || kc == RMY)
 		ft_keypad(kc, data);
 	ft_display(data);
 	return (0);
