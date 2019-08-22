@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 17:02:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/22 17:17:25 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/22 18:16:24 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,9 @@ typedef struct			s_pt
 	int					x2;
 	int					y2;
 	int					dx;
-	int					sx;
 	int					dy;
 	int					sy;
 	int					err;
-	int					er2;
 }						t_pt;
 
 typedef struct			s_pos
@@ -76,8 +74,6 @@ typedef struct			s_color
 	int					r;
 	int					g;
 	int					b;
-	float				a;
-	float				sa;
 }						t_color;
 
 typedef struct			s_img

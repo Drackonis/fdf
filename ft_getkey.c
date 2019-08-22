@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 12:47:40 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/22 17:02:02 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/22 18:13:06 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,3 @@ int		ft_display(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
 	return (0);
 }
-

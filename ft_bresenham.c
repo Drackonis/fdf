@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/16 13:17:08 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/22 15:12:17 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/22 18:29:29 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		ft_quadran23(t_data *data)
 	while (data->pt.x1 != data->pt.x2 + 1)
 	{
 		ft_putpix(data, data->pos.ix + data->pt.x1, data->pos.iy + data->pt.y1);
-		data->pt.x1++;;
+		data->pt.x1++;
 		err -= data->pt.dy;
 		if (err <= data->pt.dx)
 		{
@@ -54,7 +54,7 @@ void		ft_diag(t_data *data)
 	{
 		ft_putpix(data, data->pos.ix + data->pt.x1, data->pos.iy + data->pt.y1);
 		data->pt.y1 += data->pt.sy;
-		data->pt.x1++;;
+		data->pt.x1++;
 	}
 }
 
@@ -85,9 +85,10 @@ void		ft_bresenham(t_data *data)
 	data->pt.dx = (int)(data->pt.x2 - data->pt.x1);
 	data->pt.dy = (int)(data->pt.y2 - data->pt.y1);
 	data->pt.sy = (data->pt.y1 < data->pt.y2) ? 1 : -1;
-	//printf("********X1:%d|X2:%d|Y1:%d|Y2:%d\n", data->pt.x1, data->pt.x2, data->pt.y1, data->pt.y2);
-	data->pt.dx = (data->pt.x2 > data->pt.x1) ? data->pt.x2 - data->pt.x1 : (data->pt.x2 - data->pt.x1) * -1;
-	data->pt.dy = (data->pt.y2 > data->pt.y1) ? data->pt.y2 - data->pt.y1 : (data->pt.y2 - data->pt.y1) * -1;
+	data->pt.dx = (data->pt.x2 > data->pt.x1) ?
+		data->pt.x2 - data->pt.x1 : (data->pt.x2 - data->pt.x1) * -1;
+	data->pt.dy = (data->pt.y2 > data->pt.y1) ?
+		data->pt.y2 - data->pt.y1 : (data->pt.y2 - data->pt.y1) * -1;
 	if (data->pt.x1 == data->pt.x2)
 		ft_horiline(data);
 	else if (data->pt.y1 == data->pt.y2)

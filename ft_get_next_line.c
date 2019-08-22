@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 17:05:18 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/22 17:46:05 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/22 18:30:12 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ t_lines				set_chain(int fd, t_lines begin, t_data *data)
 t_lines				read_arg(char **argv, t_lines begin, t_data *data)
 {
 	int				fd;
-	//char			*line;
 	int				ret;
 
 	fd = 0;
