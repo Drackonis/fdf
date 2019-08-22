@@ -6,7 +6,7 @@
 #    By: rkergast <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 16:06:19 by rkergast          #+#    #+#              #
-#    Updated: 2019/08/22 18:02:05 by rkergast         ###   ########.fr        #
+#    Updated: 2019/08/22 18:08:11 by rkergast         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FLAGS = -Wall -Wextra -Werror
 OBJ_NAME = $(SRC:.c=.o)
 SRC = $(SRC_NAME)
 OBJ = $(OBJ_NAME)
-MLX = mlxmc/libmlx.a -framework OPENGL -framework AppKit
+MLX = mlx/libmlx.a -framework OPENGL -framework AppKit
 NAME = fdf
 LIB = fdf.a
 .PHONY: all, clean, fclean, re
