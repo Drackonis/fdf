@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 13:08:06 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/22 18:19:54 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/23 13:05:13 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	ft_keycolor(int kc, t_data *data)
 		data->color.g -= 20;
 	else if (kc == B)
 		data->color.b -= 20;
+	else if (kc == C)
+		data->color.color++;
+	if (data->color.color > COLOR_MAX)
+		data->color.color = 0;
 }
 
 void	ft_switchproj(t_data *data)

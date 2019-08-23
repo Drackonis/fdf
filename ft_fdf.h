@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 17:02:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/22 18:16:24 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/23 13:04:45 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 # define BUFF_SIZE 1
 # define PROJ_MAX 1
+# define COLOR_MAX 1
 
 # define UP 126
 # define DOWN 125
@@ -33,6 +34,7 @@
 # define R 15
 # define G 5
 # define B 11
+# define C 8
 # define A 0
 
 # define SPACE 49

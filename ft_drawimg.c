@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 14:22:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/22 18:28:17 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/08/23 13:08:09 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,18 @@ void		ft_setcolorl(t_data *data, int i, int j)
 	else if (data->tab[i][j] < data->tab[0][0] ||
 			data->tab[i][j + 1] < data->tab[0][0])
 		ft_setblue(data);
+}
+
+void		ft_selectcolor(t_data *data, int linorcol)
+{
+	if (linorcol == 1)
+	{
+	
+	}
+	else if (lineorcol == 0)
+	{
+	
+	}
 }
 
 void		ft_drawcolumn(t_data *data)
