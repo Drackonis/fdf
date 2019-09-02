@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 12:47:40 by rkergast          #+#    #+#             */
-/*   Updated: 2019/09/02 14:21:47 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/09/02 14:55:01 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int		ft_getkey(int kc, t_data *data)
 {
-	printf("kc:%d\n",kc);
 	if (kc == UP || kc == DOWN || kc == RIGHT || kc == LEFT)
 		ft_keymove(kc, data);
-	else if (kc == R || kc == G || kc == B || kc == A || kc == C)
+	else if (kc == R || kc == G || kc == B || kc == C)
 		ft_keycolor(kc, data);
 	else if (kc == SPACE)
 		ft_switchproj(data);

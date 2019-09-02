@@ -6,47 +6,11 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 17:05:18 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/22 18:30:12 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/09/02 15:28:05 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
-
-int					get_next_line(const int fd, char **line)
-{
-	static char		*tab[256];
-	char			*buf;
-	int				ret;
-	int				i;
-
-	ret = 0;
-	i = 0;
-	if (fd < 0 || line == NULL || !(buf = ft_strnew(BUFF_SIZE)))
-		return (-1);
-	while ((ret = read(fd, buf, BUFF_SIZE)))
-	{
-		buf[ret] = '\0';
-		tab[fd] = ft_strfreejoin(tab[fd], buf);
-		if (ft_strchr(buf, '\n'))
-			break ;
-	}
-	ft_strdel(&buf);
-	if (ret < BUFF_SIZE && !ft_strlen(tab[fd]))
-		return (0);
-	while (tab[fd][i] != '\n' && tab[fd][i] != '\0')
-		i++;
-	if (i == (int)ft_strlen(tab[fd]))
-	{
-		*line = ft_strdup(tab[fd]);
-		ft_strclr(tab[fd]);
-	}
-	else
-	{
-		*line = ft_strsub(tab[fd], 0, i);
-		tab[fd] = ft_strnclr(tab[fd], i + 1);
-	}
-	return (1);
-}
 
 t_lines				*set_link(int idx, char *line)
 {
@@ -59,36 +23,38 @@ t_lines				*set_link(int idx, char *line)
 	return (new);
 }
 
+void				set_value(t_data *data)
+{
+	data->ret = 0;
+	data->idx = 0;
+	data->start = 0;
+}
+
 t_lines				set_chain(int fd, t_lines begin, t_data *data)
 {
 	char			*line;
-	int				ret;
-	int				idx;
-	int				start;
 	t_lines			*current;
 
-	ret = 0;
-	idx = 0;
-	start = 0;
-	while ((ret = get_next_line(fd, &line)) == 1)
+	set_value(data);
+	while ((data->ret = get_next_line(fd, &line)) == 1)
 	{
-		if (start == 0)
+		if (data->start == 0)
 		{
-			begin.index = idx;
+			begin.index = data->idx;
 			begin.line = ft_strdup(line);
 			current = &begin;
 		}
 		else
 		{
-			current->next = set_link(idx, line);
+			current->next = set_link(data->idx, line);
 			current = current->next;
 		}
-		idx++;
-		start++;
+		data->idx++;
+		data->start++;
 		free(line);
 		line = NULL;
 	}
-	data->nblin = idx;
+	data->nblin = data->idx;
 	current->next = NULL;
 	return (begin);
 }
