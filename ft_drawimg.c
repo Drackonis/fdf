@@ -25,6 +25,22 @@ void		ft_putpix(t_data *data, int x, int y)
 	}
 }
 
+void		ft_setcolorc1(t_data *data, int i, int j)
+{
+	int c;
+	int x;
+	int y;
+
+	c = data->tab[0][0];
+	x = data->tab[i][j];
+	y = data->tab[i + 1][j];
+	ft_setyellow(data);
+	if (x > c && y > c)
+		data->color.b += ((x - c) + (y - c)) * 10;
+	else if (x < c && y < c)
+		data->color.g -= ((c - x) + (c - y)) * 10;
+}
+
 void		ft_setcolorc(t_data *data, int i, int j)
 {
 	ft_setgreen(data);
@@ -45,6 +61,22 @@ void		ft_setcolorc(t_data *data, int i, int j)
 	else if (data->tab[i][j] < data->tab[0][0] ||
 			data->tab[i + 1][j] < data->tab[0][0])
 		ft_setblue(data);
+}
+
+void		ft_setcolorl1(t_data *data, int i, int j)
+{
+	int c;
+	int x;
+	int y;
+
+	c = data->tab[0][0];
+	x = data->tab[i][j];
+	y = data->tab[i][j + 1];
+	ft_setyellow(data);
+	if (x > c && y > c)
+		data->color.b += ((x - c) + (y - c)) * 10;
+	else if (x < c && y < c)
+		data->color.g -= ((c - x) + (c - y)) * 10;
 }
 
 void		ft_setcolorl(t_data *data, int i, int j)
@@ -69,15 +101,21 @@ void		ft_setcolorl(t_data *data, int i, int j)
 		ft_setblue(data);
 }
 
-void		ft_selectcolor(t_data *data, int linorcol)
+void		ft_selectcolor(t_data *data, int lc, int i, int j)
 {
-	if (linorcol == 1)
+	if (lc == 0)
 	{
-	
+		if (data->color.color == 0)
+			setcolorl(data);
+		else if (data->color.color == 1)
+			setcolorl1(data);
 	}
-	else if (lineorcol == 0)
+	else if (lc == 1)
 	{
-	
+		if (data->color.color == 0)
+			setcolorc(data);
+		else if (data->color.color == 1)
+			setcolorc1(data);
 	}
 }
 
@@ -98,7 +136,7 @@ void		ft_drawcolumn(t_data *data)
 			data->pt.y2 = ft_tabtoisoy(i + 1, j, data) + data->winheight / 2;
 			data->pt.y1 -= data->tab[i][j];
 			data->pt.y2 -= data->tab[i + 1][j];
-			ft_setcolorc(data, i, j);
+			ft_selectcolor(data, 1, i, j);
 			ft_swap(data);
 			ft_bresenham(data);
 			i++;
@@ -124,7 +162,7 @@ void		ft_drawline(t_data *data)
 			data->pt.y2 = ft_tabtoisoy(i, j + 1, data) + data->winheight / 2;
 			data->pt.y1 -= data->tab[i][j];
 			data->pt.y2 -= data->tab[i][j + 1];
-			ft_setcolorl(data, i, j);
+			ft_selectcolor(data, 0, i, j);
 			ft_swap(data);
 			ft_bresenham(data);
 			j++;
