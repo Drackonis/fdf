@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 13:08:06 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/23 13:05:13 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/09/02 14:26:26 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,13 @@ void	ft_keyzoom(int kc, t_data *data)
 			data->space = 5;
 	}
 	else if (kc == MORE)
-	{
 		data->space += 5;
+	else if (kc == DIV)
+	{
+		data->heightcoef--;
 	}
+	else if (kc == MUL)
+		data->heightcoef++;
 }
 
 void	ft_keypad(int kc, t_data *data)

@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 14:22:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/23 13:08:09 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/09/02 14:21:04 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,16 +106,16 @@ void		ft_selectcolor(t_data *data, int lc, int i, int j)
 	if (lc == 0)
 	{
 		if (data->color.color == 0)
-			setcolorl(data);
+			ft_setcolorl(data, i, j);
 		else if (data->color.color == 1)
-			setcolorl1(data);
+			ft_setcolorl1(data, i, j);
 	}
 	else if (lc == 1)
 	{
 		if (data->color.color == 0)
-			setcolorc(data);
+			ft_setcolorc(data, i, j);
 		else if (data->color.color == 1)
-			setcolorc1(data);
+			ft_setcolorc1(data, i, j);
 	}
 }
 
@@ -134,8 +134,8 @@ void		ft_drawcolumn(t_data *data)
 			data->pt.y1 = ft_tabtoisoy(i, j, data) + data->winheight / 2;
 			data->pt.x2 = ft_tabtoisox(i + 1, j, data) + data->winwidth / 2;
 			data->pt.y2 = ft_tabtoisoy(i + 1, j, data) + data->winheight / 2;
-			data->pt.y1 -= data->tab[i][j];
-			data->pt.y2 -= data->tab[i + 1][j];
+			data->pt.y1 -= data->tab[i][j] * data->heightcoef;
+			data->pt.y2 -= data->tab[i + 1][j] * data->heightcoef;
 			ft_selectcolor(data, 1, i, j);
 			ft_swap(data);
 			ft_bresenham(data);
@@ -160,8 +160,8 @@ void		ft_drawline(t_data *data)
 			data->pt.y1 = ft_tabtoisoy(i, j, data) + data->winheight / 2;
 			data->pt.x2 = ft_tabtoisox(i, j + 1, data) + data->winwidth / 2;
 			data->pt.y2 = ft_tabtoisoy(i, j + 1, data) + data->winheight / 2;
-			data->pt.y1 -= data->tab[i][j];
-			data->pt.y2 -= data->tab[i][j + 1];
+			data->pt.y1 -= data->tab[i][j] * data->heightcoef;
+			data->pt.y2 -= data->tab[i][j + 1] * data->heightcoef;
 			ft_selectcolor(data, 0, i, j);
 			ft_swap(data);
 			ft_bresenham(data);

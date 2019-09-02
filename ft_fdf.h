@@ -6,7 +6,7 @@
 /*   By: rkergast <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 17:02:26 by rkergast          #+#    #+#             */
-/*   Updated: 2019/08/23 13:04:45 by rkergast         ###   ########.fr       */
+/*   Updated: 2019/09/02 14:19:21 by rkergast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 # define SPACE 49
 # define ENTER 36
 # define ESC 53
+# define DIV 75
+# define MUL 67
 
 # define MORE 69
 # define LESS 78
@@ -104,6 +106,7 @@ typedef	struct			s_data
 	struct s_pos		pos;
 	struct s_color		color;
 	struct s_img		img;
+	int					heightcoef;
 }						t_data;
 
 typedef struct			s_lines
